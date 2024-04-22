@@ -1,4 +1,5 @@
 import unittest
+import random
 
 contas_correntes = lambda: {
     'marcos': 240.0,
@@ -46,6 +47,31 @@ class TestBankOperations(unittest.TestCase):
         # Assume que Luiza tem $354.0, tentar sacar mais do que isso
         resultado = processar_saque(100, 'luiza')
         self.assertEqual("R$254.0", resultado) 
+    
+    def test_stress_multiple_operations(self):
+        # Valores iniciais para referência
+        initial_balances = {
+            'marcos': 240.0,
+            'luiza': 354.0,
+            'roberto': 987.0
+        }
+        
+        # Número de operações por usuário
+        num_operations = 10000
+        
+        # Simular operações
+        for _ in range(num_operations):
+            for user in ['marcos', 'luiza', 'roberto']:
+                amount = random.uniform(1, 100)  # valores aleatórios entre $1 e $100
+                somar_valor(user, amount)
+
+        # Verificar os saldos finais após todas as operações
+        for user in ['marcos', 'luiza', 'roberto']:
+            expected_final_balance = initial_balances[user]  # Calcula o saldo esperado
+            # Saques e depósitos foram aleatórios, então verificamos se o saldo final é lógico
+            final_balance = contas_correntes().get(user)
+            # Verifica se o saldo final não é negativo e não excede o saldo inicial + total possível de depósitos
+            self.assertTrue(0 <= final_balance <= initial_balances[user] + 100 * num_operations)
 
 
 
