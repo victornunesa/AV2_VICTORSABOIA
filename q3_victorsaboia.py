@@ -17,8 +17,8 @@ execdroptable = lambda dbname, crs: execsqlcmd("DROP TABLE " + dbname + ";\n", c
 execusedatabase = lambda dbname, crs: execsqlcmd("USE " + dbname + ";\n", crs)
 
 
-execcreatedatabase("game8", crs);
-execusedatabase("game8", crs);
+execcreatedatabase("game12", crs);
+execusedatabase("game12", crs);
 
 
 execcreatetable('USERS', 'id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), country VARCHAR(255), id_console INT', crs)

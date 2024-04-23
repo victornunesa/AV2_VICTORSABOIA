@@ -1,13 +1,21 @@
 createTransaction = lambda x: print(x)
 createTransaction("**Create Transaction**");
 
+
+###PARA LOGAR DEVE-SE UTILIZAR O NOME DO USUARIO, COMO MARCOS E DEPOIS DIGITAR SUA SENHA
+###EX: USER:MARCOS SENHA: ATLANTICO1
+
+
+
+
+##DICIONARIO DE USUARIO COM SALDO RESPECTIVO
 contas_correntes = lambda: {
     'marcos': 240.0,
     'luiza': 354.0,
     'roberto': 987.0
 }
 
-# Dicionário para mapear IDs de usuário para senhas
+##DICIONARIO DE USUARIO COM SENHA RESPECTIVA
 senhas = lambda: {
     'marcos': 'atlantico1',
     'luiza': 'victor34',
